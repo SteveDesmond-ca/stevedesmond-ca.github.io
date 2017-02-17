@@ -19,6 +19,7 @@ namespace Web.Helpers
 
             var img = new XElement("img", context.AllAttributes.Select(a => new XAttribute(a.Name, a.Value)));
             UpdateTag(img);
+            output.Attributes.RemoveAll("base");
             output.Attributes.SetAttribute("src", img.Attribute("src").Value);
             output.Attributes.SetAttribute("srcset", img.Attribute("srcset").Value);
             output.Attributes.SetAttribute("sizes", img.Attribute("sizes").Value);
