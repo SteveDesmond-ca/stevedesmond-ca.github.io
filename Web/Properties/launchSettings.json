@@ -10,12 +10,11 @@
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
-      "launchBrowser": true,
       "sdkVersion": "dnx-coreclr-win-x64.1.0.0-beta7"
     },
     "Run": {
       "commandName": "Project",
-      "commandLineArgs": "--server.urls http://*:5000"
+      "applicationUrl": "http://0.0.0.0:5000"
     }
   }
 }

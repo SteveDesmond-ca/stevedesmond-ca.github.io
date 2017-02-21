@@ -18,7 +18,7 @@ namespace Web
             Cache.Config = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("credentials.json")
-                .AddApplicationInsightsSettings(env.IsDevelopment())
+                .AddApplicationInsightsSettings(true)
                 .Build();
 
             Cache.CSSHash = Math.Abs(File.ReadAllText(Path.Combine(env.WebRootPath, "index.css")).GetHashCode());
@@ -43,9 +43,6 @@ namespace Web
 
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePagesWithRedirects("/");
-
-            app.UseApplicationInsightsRequestTelemetry();
-            app.UseApplicationInsightsExceptionTelemetry();
 
             app.UseMvc(routes =>
             {
