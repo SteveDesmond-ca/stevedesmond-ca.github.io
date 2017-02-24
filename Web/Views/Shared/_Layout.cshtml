@@ -1,5 +1,4 @@
-﻿@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet AppInsights
-@using Web.Models
+﻿@using Web.Models
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,7 +35,7 @@
         @Html.Raw(Settings.OrgJSON)
     </script>
 
-    @Html.Raw(AppInsights.FullScript)
+    @Html.ApplicationInsightsJavaScript(TelemetryConfiguration)
 </head>
 <body>
     @Html.Partial("Header")
