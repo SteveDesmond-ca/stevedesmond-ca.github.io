@@ -118,6 +118,22 @@ small {
     font-size: 85%;
 }
 
+/* mobile */
+
+@media (max-width: 480px) {
+    .nav-tabs li {
+        padding: 0;
+    }
+
+    .nav-tabs li a {
+        padding: 5px;
+        font-size: 9pt;
+    }
+
+    ol {
+        padding-left: 1em;
+    }
+}
 @media (min-width: 480px) and (max-height: 480px) {
     #title .visible-xs {
         display: none !important;
@@ -293,4 +309,23 @@ small {
 .btn-group-vertical > .btn-group:after, .btn-group-vertical > .btn-group:before, .btn-toolbar:after, .btn-toolbar:before, .clearfix:after, .clearfix:before, .container-fluid:after, .container-fluid:before, .container:after, .container:before, .dl-horizontal dd:after, .dl-horizontal dd:before, .form-horizontal .form-group:after, .form-horizontal .form-group:before, .modal-footer:after, .modal-footer:before, .modal-header:after, .modal-header:before, .nav:after, .nav:before, .navbar-collapse:after, .navbar-collapse:before, .navbar-header:after, .navbar-header:before, .navbar:after, .navbar:before, .pager:after, .pager:before, .panel-body:after, .panel-body:before, .row:after, .row:before {
     display: table;
     content: " ";
+}
+
+/* code */
+
+@media (max-width: 480px) {
+    ol div.code {
+        margin-left: -1em;
+    }
+}
+
+div.code {
+    background: #333;
+    border: 1px solid #666;
+    border-radius: 4px;
+    font-family: monospace;
+    max-width: calc(100vw - 30px);
+    overflow-x: auto;
+    padding: 8px;
+    white-space: pre;
 }
