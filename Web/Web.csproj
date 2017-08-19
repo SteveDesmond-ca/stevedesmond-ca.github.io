@@ -10,10 +10,6 @@
     <MvcRazorCompileOnPublish>true</MvcRazorCompileOnPublish>
   </PropertyGroup>
   
-  <PropertyGroup>
-    <PackageTargetFallback>dotnet5.4</PackageTargetFallback>
-  </PropertyGroup>
-  
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <LangVersion>latest</LangVersion>
     <ErrorReport>queue</ErrorReport>

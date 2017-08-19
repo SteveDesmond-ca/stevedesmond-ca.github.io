@@ -3,7 +3,7 @@ set -e
 
 apt-get -y update
 apt-get -y dist-upgrade
-apt-get -y install git wget
+apt-get -y install git wget letsencrypt
 
 wget http://nginx.org/keys/nginx_signing.key
 apt-key add nginx_signing.key
