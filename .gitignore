@@ -1,4 +1,4 @@
-.vs
+.vs*
 artifcats
 bin
 obj
@@ -8,5 +8,4 @@ PublishProfiles
 packages
 credentials.json
 NDependOut
-
 node_modules

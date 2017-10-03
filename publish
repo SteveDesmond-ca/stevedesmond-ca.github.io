@@ -1,10 +1,7 @@
 #!/bin/bash
 set -e
 
-dotnet restore Web
-dotnet publish Web -c Release
-
-docker build -t www Web
+docker build -t www .
 docker rm -f $1 || true
 docker run -d --restart=always -p $2:80 -v /db:/db --name $1 www
 
