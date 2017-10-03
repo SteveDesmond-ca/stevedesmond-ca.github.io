@@ -16,26 +16,26 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var page in Model)
+        @foreach (var p in Model)
         {
             <tr>
                 <td>
-                    @page.Timestamp.ToString("g")
+                    @p.Timestamp.ToString("g")
                 </td>
                 <td>
-                    @page.Category
+                    @p.Category
                 </td>
                 <td>
-                    @Html.ActionLink(page.Title, "Edit", new { id = page.ID })
+                    @Html.ActionLink(p.Title, "Edit", new { id = p.ID })
                 </td>
                 <td>
-                    @if (page.Aggregate)
+                    @if (p.Aggregate)
                     {
                         <i class="fa fa-check"></i>
                     }
                 </td>
                 <td>
-                    @if (page.Crawl)
+                    @if (p.Crawl)
                     {
                         <i class="fa fa-check"></i>
                     }
