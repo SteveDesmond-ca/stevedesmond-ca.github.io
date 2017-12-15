@@ -49,6 +49,10 @@ img {
     max-width: 100%;
 }
 
+main {
+    margin-top: 72px;
+}
+
 article {
     margin-top: 20px;
     margin-bottom: 20px;

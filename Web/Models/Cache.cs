@@ -9,7 +9,6 @@ namespace Web.Models
     {
         public static IConfigurationRoot Config { get; set; }
         public static int CSSHash { get; internal set; }
-        public static string CriticalPathCSS { get; internal set; }
         public static string TitleImage { get; internal set; }
         public static string TitleImageXS { get; internal set; }
 
