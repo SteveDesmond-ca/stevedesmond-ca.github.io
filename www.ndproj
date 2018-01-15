@@ -1,60 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<NDepend AppName="www" Platform="DotNet" FileWrittenByProductVersion="2017.1.1.8920">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<NDepend AppName="www" Platform="DotNet" FileWrittenByProductVersion="2017.3.2.9010">
   <OutputDir KeepXmlFiles="False">D:\Code\www\NDependOut</OutputDir>
-  <Assemblies>
-    <Name>Web</Name>
-    <Name>Test</Name>
-  </Assemblies>
-  <FrameworkAssemblies>
-    <Name>System.Runtime</Name>
-    <Name>System.Diagnostics.Debug</Name>
-    <Name>Microsoft.Extensions.Configuration.Abstractions</Name>
-    <Name>Microsoft.AspNetCore.Hosting.Abstractions</Name>
-    <Name>Microsoft.Extensions.DependencyInjection.Abstractions</Name>
-    <Name>Microsoft.AspNetCore.Http.Abstractions</Name>
-    <Name>Microsoft.AspNetCore.StaticFiles</Name>
-    <Name>Microsoft.AspNetCore.Routing</Name>
-    <Name>System.ComponentModel.Annotations</Name>
-    <Name>Microsoft.EntityFrameworkCore</Name>
-    <Name>Microsoft.AspNetCore.Razor.Runtime</Name>
-    <Name>System.Xml.XDocument</Name>
-    <Name>Microsoft.AspNetCore.Mvc.ViewFeatures</Name>
-    <Name>Microsoft.Extensions.Primitives</Name>
-    <Name>Microsoft.AspNetCore.Mvc.Abstractions</Name>
-    <Name>System.Linq</Name>
-    <Name>Microsoft.AspNetCore.Mvc.Core</Name>
-    <Name>System.Linq.Expressions</Name>
-    <Name>System.Dynamic.Runtime</Name>
-    <Name>MimeKit</Name>
-    <Name>MailKit</Name>
-    <Name>System.Threading.Tasks</Name>
-    <Name>System.Collections</Name>
-    <Name>Microsoft.Extensions.Configuration</Name>
-    <Name>Microsoft.Extensions.Configuration.CommandLine</Name>
-    <Name>Microsoft.AspNetCore.Hosting</Name>
-    <Name>Microsoft.AspNetCore.Server.Kestrel</Name>
-    <Name>System.IO.FileSystem</Name>
-    <Name>Microsoft.Extensions.Configuration.FileExtensions</Name>
-    <Name>Microsoft.Extensions.Configuration.Json</Name>
-    <Name>Microsoft.ApplicationInsights.AspNetCore</Name>
-    <Name>System.Runtime.Extensions</Name>
-    <Name>Microsoft.AspNetCore.Mvc</Name>
-    <Name>Microsoft.AspNetCore.Diagnostics</Name>
-    <Name>Microsoft.EntityFrameworkCore.Relational</Name>
-    <Name>Microsoft.EntityFrameworkCore.Sqlite</Name>
-    <Name>Microsoft.AspNetCore.Razor</Name>
-    <Name>Microsoft.AspNetCore.Http.Features</Name>
-    <Name>System.Text.Encoding</Name>
-    <Name>System.Security.Cryptography.Algorithms</Name>
-    <Name>System.Security.Cryptography.Primitives</Name>
-    <Name>Microsoft.CSharp</Name>
-    <Name>System.Reflection</Name>
-    <Name>System.Linq.Queryable</Name>
-  </FrameworkAssemblies>
+  <Assemblies />
+  <FrameworkAssemblies />
   <Dirs>
-    <Dir>D:\Code\www\Web\bin\debug\netcoreapp1.1</Dir>
     <Dir>C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319</Dir>
     <Dir>C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\WPF</Dir>
+    <Dir>C:\Users\VTSV\.nuget\packages</Dir>
+    <Dir>D:\Code\www\Web\bin\debug\netcoreapp1.1</Dir>
   </Dirs>
   <MergeCodeGeneratedByCompiler>True</MergeCodeGeneratedByCompiler>
   <Report Kind="0" SectionsEnabled="110591" XslPath="" Flags="261120" />
@@ -115,13 +68,12 @@
       <B2C_RatingThreshold>10</B2C_RatingThreshold>
       <C2D_RatingThreshold>20</C2D_RatingThreshold>
       <D2E_RatingThreshold>50</D2E_RatingThreshold>
-      <Info2Minor_SeverityThreshold>1200000000</Info2Minor_SeverityThreshold>
-      <Minor2Major_SeverityThreshold>12000000000</Minor2Major_SeverityThreshold>
-      <Major2Critical_SeverityThreshold>72000000000</Major2Critical_SeverityThreshold>
+      <Low2Medium_SeverityThreshold>1200000000</Low2Medium_SeverityThreshold>
+      <Medium2High_SeverityThreshold>12000000000</Medium2High_SeverityThreshold>
+      <High2Critical_SeverityThreshold>72000000000</High2Critical_SeverityThreshold>
       <Critical2Blocker_SeverityThreshold>360000000000</Critical2Blocker_SeverityThreshold>
     </DebtSettings>
-  </ProjectDebtSettings>
-  <Queries>
+  </ProjectDebtSettings><Queries>
     <Group Name="Quality Gates" Active="True" ShownInReport="True">
       <Query Active="True" DisplayList="True" DisplayStat="True" DisplaySelectionView="False" IsCriticalRule="False"><![CDATA[// <Name>Quality Gates Evolution</Name>
 from qg in QualityGates
@@ -10955,5 +10907,4 @@ select new {
 //</HowToFix>]]></Query>
       </Group>
     </Group>
-  </Queries>
-</NDepend>
+  </Queries></NDepend>
