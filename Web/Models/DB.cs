@@ -2,7 +2,7 @@
 
 namespace Web.Models
 {
-    internal sealed class DB : DbContext
+    public sealed class DB : DbContext
     {
         public DbSet<Page> Pages { get; set; }
 

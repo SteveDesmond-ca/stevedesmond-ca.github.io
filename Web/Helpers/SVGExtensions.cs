@@ -8,23 +8,25 @@ namespace Web.Helpers
         public static string CleanSVG(this string original)
         {
             var xml = XDocument.Parse(original).Root;
+            if (xml == null)
+                return null;
 
-            xml.Attributes().ToList().Where(attributesShouldBeRemoved).Remove();
-            xml.Descendants().Where(elementShouldBeRemoved).Remove();
+            xml.Attributes().Where(AttributeShouldBeRemoved).Remove();
+            xml.Descendants().Where(ElementShouldBeRemoved).Remove();
             foreach (var style in xml.Descendants().Attributes().Where(a => a.Name.LocalName == "style"))
                 style.Value = "fill:#fff";
 
             return xml.ToString();
         }
 
-        private static bool elementShouldBeRemoved(XElement e)
+        private static bool ElementShouldBeRemoved(XElement e)
         {
             return e.Name.NamespaceName.Contains("sodipodi")
-            || e.Name.LocalName == "defs"
-            || e.Name.LocalName == "metadata";
+                || e.Name.LocalName == "defs"
+                || e.Name.LocalName == "metadata";
         }
 
-        private static bool attributesShouldBeRemoved(XAttribute a)
+        private static bool AttributeShouldBeRemoved(XAttribute a)
         {
             return a.Name.NamespaceName.Contains("xmlns")
                 || a.Name.NamespaceName.Contains("sodipodi")

@@ -3,21 +3,22 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using Web.Models;
 
 namespace Web.Controllers
 {
     public sealed class AdminController : Controller
     {
-        private readonly DB db;
+        private readonly DB _db;
+        private readonly ICache _cache;
 
-        public AdminController()
+        public AdminController(DB db, ICache cache)
         {
-            db = new DB();
+            _db = db;
+            _cache = cache;
         }
 
-        private bool authorized
+        private bool IsAuthorized
         {
             get
             {
@@ -26,11 +27,11 @@ namespace Web.Controllers
                     return false;
 
                 var hash = Encoding.UTF8.GetString(SHA256.Create().ComputeHash(Convert.FromBase64String(auth.First().Substring(6))));
-                return hash == Cache.Config["AdminKey"];
+                return hash == _cache.Config["AdminKey"];
             }
         }
 
-        private IActionResult authorizationPrompt
+        private IActionResult AuthorizationPrompt
         {
             get
             {
@@ -42,10 +43,10 @@ namespace Web.Controllers
 
         public IActionResult Index()
         {
-            if (!authorized)
-                return authorizationPrompt;
+            if (!IsAuthorized)
+                return AuthorizationPrompt;
 
-            var pages = Cache.Pages.OrderBy(p => p.Category).ThenByDescending(p => p.Timestamp);
+            var pages = _cache.Pages.OrderBy(p => p.Category).ThenByDescending(p => p.Timestamp);
             ViewBag.Subtitle = "Admin";
             return View(pages);
         }
@@ -53,10 +54,10 @@ namespace Web.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            if (!authorized)
-                return authorizationPrompt;
+            if (!IsAuthorized)
+                return AuthorizationPrompt;
 
-            var page = new Page { ID = db.Pages.Max(p => p.ID) + 1 };
+            var page = new Page { ID = _db.Pages.Max(p => p.ID) + 1 };
             ViewBag.Subtitle = "Create";
             return View("Edit", page);
         }
@@ -64,8 +65,8 @@ namespace Web.Controllers
         [HttpPost]
         public IActionResult Create(Page page)
         {
-            if (!authorized)
-                return authorizationPrompt;
+            if (!IsAuthorized)
+                return AuthorizationPrompt;
 
             if (!ModelState.IsValid)
             {
@@ -73,9 +74,9 @@ namespace Web.Controllers
                 return View("Edit", page);
             }
 
-            db.Pages.Add(page);
-            db.SaveChanges();
-            Cache.Reset();
+            _db.Pages.Add(page);
+            _db.SaveChanges();
+            _cache.Refresh();
 
             ViewBag.Success = true;
             return RedirectToAction("Edit", new { id = page.ID });
@@ -84,10 +85,10 @@ namespace Web.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            if (!authorized)
-                return authorizationPrompt;
+            if (!IsAuthorized)
+                return AuthorizationPrompt;
 
-            var page = db.Pages.First(p => p.ID == id);
+            var page = _db.Pages.First(p => p.ID == id);
             ViewBag.Subtitle = "Edit – " + page.Title;
             return View(page);
         }
@@ -95,17 +96,17 @@ namespace Web.Controllers
         [HttpPost]
         public IActionResult Edit(Page page)
         {
-            if (!authorized)
-                return authorizationPrompt;
+            if (!IsAuthorized)
+                return AuthorizationPrompt;
 
             ViewBag.Subtitle = "Edit – " + page.Title;
 
             if (!ModelState.IsValid)
                 return View(page);
 
-            db.Pages.Update(page);
-            db.SaveChanges();
-            Cache.Reset();
+            _db.Pages.Update(page);
+            _db.SaveChanges();
+            _cache.Refresh();
 
             ViewBag.Success = true;
             return View(page);
@@ -113,7 +114,7 @@ namespace Web.Controllers
 
         public IActionResult Flush()
         {
-            Cache.Reset();
+            _cache.Refresh();
             return RedirectToAction("Index");
         }
     }

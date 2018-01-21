@@ -8,6 +8,13 @@ namespace Web.Controllers
 {
     public sealed class ContactController : Controller
     {
+        private readonly ICache _cache;
+
+        public ContactController(ICache cache)
+        {
+            _cache = cache;
+        }
+
         [HttpGet("/work-with-steve")]
         public IActionResult Index()
         {
@@ -37,7 +44,7 @@ namespace Web.Controllers
             using (var client = new SmtpClient())
             {
                 client.Connect(Settings.EmailServer, 465);
-                client.Authenticate(Settings.EmailUser, Cache.Config["EmailPassword"]);
+                client.Authenticate(Settings.EmailUser, _cache.Config["EmailPassword"]);
                 client.Send(emailMessage);
                 client.Disconnect(true);
             }

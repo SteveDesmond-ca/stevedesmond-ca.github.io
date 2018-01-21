@@ -1,49 +1,48 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Web.Helpers;
 
 namespace Web.Models
 {
-    public static class Cache
+    public class Cache : ICache
     {
-        public static IConfigurationRoot Config { get; set; }
-        public static int CSSHash { get; internal set; }
-        public static string TitleImage { get; internal set; }
-        public static string TitleImageXS { get; internal set; }
-
-        private static IEnumerable<Page> pages;
-        public static IEnumerable<Page> Pages => pages ?? setPages(new DB().Pages.ToList());
-
-        private static IEnumerable<Page> setPages(IEnumerable<Page> content)
+        public Cache(IConfigurationRoot _configuration, IHostingEnvironment env, DB db)
         {
-            return pages = content;
+            Config = _configuration;
+            CSSHash = Math.Abs(File.ReadAllText(Path.Combine(env.WebRootPath, "index.css")).GetHashCode());
+            TitleImage = File.ReadAllText(Path.Combine(env.WebRootPath, "title.svg")).CleanSVG().Minify();
+            TitleImageXS = File.ReadAllText(Path.Combine(env.WebRootPath, "title-xs.svg")).CleanSVG().Minify();
+            Refresh();
         }
 
-        private static string intro;
-        public static string Intro => intro ?? setIntro(Pages.First(p => p.Category == "Main" && p.Title == "Intro").Body);
+        public IConfigurationRoot Config { get; set; }
+        public int CSSHash { get; }
+        public string TitleImage { get; }
+        public string TitleImageXS { get; }
 
-        private static string availabilityMessage;
-        public static string AvailabilityMessage => availabilityMessage ?? setAvailability(Pages.First(p => p.Category == "Main" && p.Title == "Availability"));
+        private IList<Page> pages;
+        public IList<Page> Pages => pages ?? SetPages(new DB().Pages.ToList());
+        private IList<Page> SetPages(IList<Page> content) => pages = content;
 
-        private static string setIntro(string content)
+        private string intro;
+        public string Intro => intro ?? SetIntro(Pages.First(p => p.Category == "Main" && p.Title == "Intro").Body);
+        private string SetIntro(string content) => intro = content;
+
+        private string availabilityMessage;
+        public string AvailabilityMessage => availabilityMessage ?? SetAvailability(Pages.First(p => p.Category == "Main" && p.Title == "Availability"));
+        private string SetAvailability(Page page) => page != null && page.Description == "On"
+            ? (availabilityMessage = page.Body)
+            : (availabilityMessage = null);
+
+        public void Refresh()
         {
-            return intro = content;
-        }
-
-        private static string setAvailability(Page page)
-        {
-            if (page != null && page.Description == "On")
-                return availabilityMessage = page.Body;
-
-            return availabilityMessage = null;
-        }
-
-        public static void Reset()
-        {
-            setPages(null);
-            setIntro(null);
-            setAvailability(null);
+            SetPages(null);
+            SetIntro(null);
+            SetAvailability(null);
             var a = Pages;
             var b = Intro;
             var c = AvailabilityMessage;

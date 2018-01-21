@@ -1,13 +1,15 @@
 ﻿@using Microsoft.ApplicationInsights.AspNetCore
 @using Microsoft.AspNetCore.Mvc.Rendering
 @using Web.Models
+@inject ICache Cache
 @inject JavaScriptSnippet appInsights
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    
+
     @{
         var canonicalURL = Settings.Domain + Context.Request.Path;
         string description = ViewBag.Description ?? Settings.Description;
@@ -34,7 +36,7 @@
     <link rel="canonical" content="@canonicalURL" />
     <link rel="alternate" type="application/atom+xml" href="/feeds/atom" />
     <link rel="alternate" type="application/rss+xml" href="/feeds/rss" />
-    
+
     <script type="application/ld+json">
         @Html.Raw(Settings.OrgJSON)
     </script>

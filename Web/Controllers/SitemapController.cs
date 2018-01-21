@@ -8,6 +8,13 @@ namespace Web.Controllers
 {
     public sealed class SitemapController : Controller
     {
+        private readonly ICache _cache;
+
+        public SitemapController(ICache cache)
+        {
+            _cache = cache;
+        }
+
         [HttpGet("sitemap.xml")]
         public string Index()
         {
@@ -19,9 +26,9 @@ namespace Web.Controllers
             return new XDocument(new XDeclaration("1.0", "UTF-8", null), xml).ToString().Replace(" xmlns=\"\"", "");
         }
 
-        private static void addCmsSitemap(XContainer xml)
+        private void addCmsSitemap(XContainer xml)
         {
-            var pages = Cache.Pages.GroupBy(p => p.Category);
+            var pages = _cache.Pages.GroupBy(p => p.Category);
             foreach (var category in pages)
             {
                 var categoryName = category.Key.ToLower();

@@ -1,6 +1,7 @@
-﻿@using System.Threading.Tasks
-@using Web.Models
+﻿@using Web.Models
 @model Page
+@inject ICache Cache
+
 @{
     var articleStyle = (Model.FullWidth) ? "" : "col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2";
     var summarize = ViewBag.Summarize ?? false;
@@ -63,7 +64,7 @@
                 </a>
             </h3>
             @if (!string.IsNullOrEmpty(Model.Description))
-                {
+            {
                 <h4 class="description">
                     <small>
                         @Model.Description
@@ -97,7 +98,7 @@
                 <i>-Steve</i>
             </p>
             @if (!string.IsNullOrEmpty(Model.TwitterStatus))
-                {
+            {
                 <p class="share">
                     <a href="http://twitter.com/stevedesmond_ca/status/@Model.TwitterStatus" target="_blank">
                         <i class="fa fa-twitter"></i>

@@ -1,11 +1,9 @@
-using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Web.Helpers;
 using Web.Models;
 
 namespace Web
@@ -13,25 +11,30 @@ namespace Web
     [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
     public class Startup
     {
+        private readonly IHostingEnvironment _env;
+        private readonly IConfigurationRoot _configuration;
+
         public Startup(IHostingEnvironment env)
         {
-            Cache.Config = new ConfigurationBuilder()
+            _configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("credentials.json")
                 .AddApplicationInsightsSettings(true)
                 .Build();
-
-            Cache.CSSHash = Math.Abs(File.ReadAllText(Path.Combine(env.WebRootPath, "index.css")).GetHashCode());
-            Cache.TitleImage = File.ReadAllText(Path.Combine(env.WebRootPath, "title.svg")).CleanSVG().Minify();
-            Cache.TitleImageXS = File.ReadAllText(Path.Combine(env.WebRootPath, "title-xs.svg")).CleanSVG().Minify();
-            Cache.Reset();
+        
+            _env = env;
         }
 
         [SuppressMessage("ReSharper", "UnusedMember.Global")]
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<DB>();
+            services.AddMemoryCache();
             services.AddMvc();
-            services.AddApplicationInsightsTelemetry(Cache.Config);
+            services.AddApplicationInsightsTelemetry(_configuration);
+            
+            services.AddSingleton<ICache, Cache>();
+            services.AddSingleton(_configuration);
         }
 
         [SuppressMessage("ReSharper", "UnusedMember.Global")]

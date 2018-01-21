@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using Web.Helpers;
 using Web.Models;
 
@@ -8,17 +7,24 @@ namespace Web.Controllers
 {
     public sealed class ResumeController : Controller
     {
+        private readonly ICache _cache;
+
+        public ResumeController(ICache cache)
+        {
+            _cache = cache;
+        }
+
         public IActionResult Index(string For)
         {
             setViewBagInfo(For);
-            var resume = Cache.Pages.First(p => p.Category.Matches("Resume") && p.URL.Matches("Resume"));
+            var resume = _cache.Pages.First(p => p.Category.Matches("Resume") && p.URL.Matches("Resume"));
             return View(resume);
         }
 
         public IActionResult Draft(string For)
         {
             setViewBagInfo(For);
-            var resume = Cache.Pages.First(p => p.Category.Matches("Resume") && p.URL.Matches("Draft"));
+            var resume = _cache.Pages.First(p => p.Category.Matches("Resume") && p.URL.Matches("Draft"));
             return View("Index", resume);
         }
 
@@ -28,10 +34,10 @@ namespace Web.Controllers
             ViewBag.NoFooter = true;
             if (For != null)
             {
-                var contactUsers = Cache.Config["ContactUsers"].Split(',');
+                var contactUsers = _cache.Config["ContactUsers"].Split(',');
                 if (contactUsers.Contains(For))
                 {
-                    var contactPage = Cache.Pages.First(p => p.Category.Matches("Resume") && p.URL.Matches("Contact"));
+                    var contactPage = _cache.Pages.First(p => p.Category.Matches("Resume") && p.URL.Matches("Contact"));
                     ViewBag.ContactInfo = contactPage.Body;
                 }
             }
@@ -39,7 +45,7 @@ namespace Web.Controllers
 
         public IActionResult Contact()
         {
-            var lolPage = Cache.Pages.First(p => p.Category.Matches("Resume") && p.URL.Matches("LOL"));
+            var lolPage = _cache.Pages.First(p => p.Category.Matches("Resume") && p.URL.Matches("LOL"));
             var niceTry = new ContentResult
             {
                 ContentType = "text/plain",
