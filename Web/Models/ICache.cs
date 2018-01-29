@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 
 namespace Web.Models
@@ -12,6 +13,8 @@ namespace Web.Models
         IList<Page> Pages { get; }
         string Intro { get; }
         string AvailabilityMessage { get; }
-        void Refresh();
+        string RSS { get; }
+        string Atom { get; }
+        Task Refresh();
     }
 }

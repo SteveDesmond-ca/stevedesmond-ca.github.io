@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Web.Models;
 
@@ -63,7 +64,7 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Page page)
+        public async Task<IActionResult> Create(Page page)
         {
             if (!IsAuthorized)
                 return AuthorizationPrompt;
@@ -74,9 +75,9 @@ namespace Web.Controllers
                 return View("Edit", page);
             }
 
-            _db.Pages.Add(page);
-            _db.SaveChanges();
-            _cache.Refresh();
+            await _db.Pages.AddAsync(page);
+            await _db.SaveChangesAsync();
+            await _cache.Refresh();
 
             ViewBag.Success = true;
             return RedirectToAction("Edit", new { id = page.ID });
@@ -94,7 +95,7 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(Page page)
+        public async Task<IActionResult> Edit(Page page)
         {
             if (!IsAuthorized)
                 return AuthorizationPrompt;
@@ -105,17 +106,11 @@ namespace Web.Controllers
                 return View(page);
 
             _db.Pages.Update(page);
-            _db.SaveChanges();
-            _cache.Refresh();
+            await _db.SaveChangesAsync();
+            await _cache.Refresh();
 
             ViewBag.Success = true;
             return View(page);
-        }
-
-        public IActionResult Flush()
-        {
-            _cache.Refresh();
-            return RedirectToAction("Index");
         }
     }
 }

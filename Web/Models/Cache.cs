@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Web.Helpers;
@@ -10,42 +11,41 @@ namespace Web.Models
 {
     public class Cache : ICache
     {
-        public Cache(IConfigurationRoot _configuration, IHostingEnvironment env, DB db)
+        public IConfigurationRoot Config { get; set; }
+        private readonly Func<DB> _newDB;
+
+        public Cache(IConfigurationRoot config, IHostingEnvironment env, Func<DB> dbFac)
         {
-            Config = _configuration;
             CSSHash = Math.Abs(File.ReadAllText(Path.Combine(env.WebRootPath, "index.css")).GetHashCode());
             TitleImage = File.ReadAllText(Path.Combine(env.WebRootPath, "title.svg")).CleanSVG().Minify();
             TitleImageXS = File.ReadAllText(Path.Combine(env.WebRootPath, "title-xs.svg")).CleanSVG().Minify();
+
+            _newDB = dbFac;
+            Config = config;
+
+            #pragma warning disable 4014
             Refresh();
+            #pragma warning restore 4014
         }
 
-        public IConfigurationRoot Config { get; set; }
         public int CSSHash { get; }
         public string TitleImage { get; }
         public string TitleImageXS { get; }
+        public IList<Page> Pages { get; private set; }
+        public string Intro { get; private set; }
+        public string AvailabilityMessage { get; private set; }
+        public string RSS { get; private set; }
+        public string Atom { get; private set; }
 
-        private IList<Page> pages;
-        public IList<Page> Pages => pages ?? SetPages(new DB().Pages.ToList());
-        private IList<Page> SetPages(IList<Page> content) => pages = content;
-
-        private string intro;
-        public string Intro => intro ?? SetIntro(Pages.First(p => p.Category == "Main" && p.Title == "Intro").Body);
-        private string SetIntro(string content) => intro = content;
-
-        private string availabilityMessage;
-        public string AvailabilityMessage => availabilityMessage ?? SetAvailability(Pages.First(p => p.Category == "Main" && p.Title == "Availability"));
-        private string SetAvailability(Page page) => page != null && page.Description == "On"
-            ? (availabilityMessage = page.Body)
-            : (availabilityMessage = null);
-
-        public void Refresh()
+        public async Task Refresh()
         {
-            SetPages(null);
-            SetIntro(null);
-            SetAvailability(null);
-            var a = Pages;
-            var b = Intro;
-            var c = AvailabilityMessage;
+            Pages = _newDB().Pages.ToList();
+            Intro = Pages.First(p => p.Category == "Main" && p.Title == "Intro")?.Body;
+            AvailabilityMessage = Pages.FirstOrDefault(p => p.Category == "Main" && p.Title == "Availability" && p.Description == "On")?.Body;
+
+            var liveBlogPosts = Pages.Where(p => p.Category == "Blog" && p.Crawl).OrderByDescending(p => p.Timestamp).ToList();
+            RSS = await liveBlogPosts.ToRSS();
+            Atom = await liveBlogPosts.ToAtom();
         }
     }
 }

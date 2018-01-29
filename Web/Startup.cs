@@ -1,7 +1,7 @@
+using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Web.Models;
@@ -11,18 +11,15 @@ namespace Web
     [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
     public class Startup
     {
-        private readonly IHostingEnvironment _env;
         private readonly IConfigurationRoot _configuration;
 
-        public Startup(IHostingEnvironment env)
+        public Startup()
         {
             _configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("credentials.json")
                 .AddApplicationInsightsSettings(true)
                 .Build();
-        
-            _env = env;
         }
 
         [SuppressMessage("ReSharper", "UnusedMember.Global")]
@@ -32,7 +29,8 @@ namespace Web
             services.AddMemoryCache();
             services.AddMvc();
             services.AddApplicationInsightsTelemetry(_configuration);
-            
+
+            services.AddSingleton<Func<DB>>(() => new DB());
             services.AddSingleton<ICache, Cache>();
             services.AddSingleton(_configuration);
         }

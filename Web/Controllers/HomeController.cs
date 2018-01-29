@@ -18,7 +18,7 @@ namespace Web.Controllers
 
         public IActionResult Page(string url)
         {
-            var pages = _cache.Pages.Where(p => p.Category.Matches(url) && p.Aggregate).OrderByDescending(p => p.Timestamp);
+            var pages = _cache.Pages.Where(p => p.Category.Matches(url) && p.Aggregate).OrderByDescending(p => p.Timestamp).ToList();
             if (!pages.Any())
                 return Redirect("/");
 

@@ -4,7 +4,7 @@
     {
         public const string Title = "Steve Desmond Software Development";
         public const string Domain = "https://stevedesmond.ca";
-        public const string CDN = "https://d24kn0csv98dxo.cloudfront.net";
+        public const string CDN = "https://stevedesmond.azureedge.net";
         public const string Location = "Ithaca, NY";
         public const string Description = "Web / app developer and software consultant based in " + Location + "; working remotely with businesses everywhere";
         public const string ImageBase = CDN + "/images";

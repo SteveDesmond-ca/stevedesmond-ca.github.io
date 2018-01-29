@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
@@ -20,9 +19,9 @@ namespace Web.Helpers
             var img = new XElement("img", context.AllAttributes.Select(a => new XAttribute(a.Name, a.Value)));
             UpdateTag(img);
             output.Attributes.RemoveAll("base");
-            output.Attributes.SetAttribute("src", img.Attribute("src").Value);
-            output.Attributes.SetAttribute("srcset", img.Attribute("srcset").Value);
-            output.Attributes.SetAttribute("sizes", img.Attribute("sizes").Value);
+            output.Attributes.SetAttribute("src", img.Attribute("src")?.Value);
+            output.Attributes.SetAttribute("srcset", img.Attribute("srcset")?.Value);
+            output.Attributes.SetAttribute("sizes", img.Attribute("sizes")?.Value);
             output.Attributes.SetAttribute("title", context.AllAttributes["alt"].Value.ToString());
         }
 
@@ -31,10 +30,11 @@ namespace Web.Helpers
             image.Name = "img";
 
             var imgSrc = image.Attribute("base");
+            if (imgSrc == null)
+                return;
+
             if (!imgSrc.Value.StartsWith(Settings.ImageBase))
-            {
                 imgSrc.Value = Settings.ImageBase + "/" + imgSrc.Value;
-            }
 
             var img = Path.GetFileNameWithoutExtension(imgSrc.Value).Split('-')[0];
 
