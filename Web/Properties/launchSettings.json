@@ -14,7 +14,8 @@
     },
     "Run": {
       "commandName": "Project",
-      "applicationUrl": "http://0.0.0.0:5000"
+      "launchBrowser": true,
+      "applicationUrl": "http://localhost:5002"
     }
   }
 }

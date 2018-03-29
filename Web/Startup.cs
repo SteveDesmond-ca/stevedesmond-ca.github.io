@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using CoreAPM.NET.CoreMiddleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,6 +26,7 @@ namespace Web
         [SuppressMessage("ReSharper", "UnusedMember.Global")]
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCoreAPM(_configuration);
             services.AddDbContext<DB>();
             services.AddMemoryCache();
             services.AddMvc();
@@ -38,6 +40,7 @@ namespace Web
         [SuppressMessage("ReSharper", "UnusedMember.Global")]
         public void Configure(IApplicationBuilder app)
         {
+            app.UseCoreAPM();
             app.UseDefaultFiles(new DefaultFilesOptions { DefaultFileNames = new[] { "index.html" } });
             app.UseStaticFiles();
 
