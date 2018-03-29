@@ -34,12 +34,12 @@ namespace Web.Helpers
                 rssWriter.WriteDescription(Settings.Description),
                 rssWriter.Write(new SyndicationLink(new Uri(Settings.Domain)))
             };
-            tasks.AddRange(pages.Select(p => rssWriter.Write(p.ToSyndicationItem())));
+            tasks.AddRange(pages.Select(p => rssWriter.Write(p.ToSyndicationItem(new SyndicationPerson(Settings.Title, Settings.EmailFromAndTo + $" ({Settings.Title})")))));
             Task.WaitAll(tasks.ToArray());
             await rssWriter.Flush();
             xmlWriter.Close();
 
-            return Encoding.UTF8.GetString(memoryStream.GetBuffer());
+            return Encoding.UTF8.GetString(memoryStream.ToArray());
         }
 
         public static async Task<string> ToAtom(this IList<Page> pages)
@@ -64,15 +64,15 @@ namespace Web.Helpers
                 atomWriter.Write(new SyndicationLink(new Uri(Settings.Domain))),
                 atomWriter.WriteUpdated(pages.First().Timestamp.ToLocalTime())
             };
-            tasks.AddRange(pages.Select(p => atomWriter.Write(p.ToSyndicationItem())));
+            tasks.AddRange(pages.Select(p => atomWriter.Write(p.ToSyndicationItem(new SyndicationPerson(Settings.Title, Settings.EmailFromAndTo)))));
             Task.WaitAll(tasks.ToArray());
             await atomWriter.Flush();
             xmlWriter.Close();
 
-            return Encoding.UTF8.GetString(memoryStream.GetBuffer());
+            return Encoding.UTF8.GetString(memoryStream.ToArray());
         }
 
-        private static SyndicationItem ToSyndicationItem(this Page p)
+        private static SyndicationItem ToSyndicationItem(this Page p, SyndicationPerson author)
         {
             var post = new SyndicationItem
             {
@@ -83,7 +83,7 @@ namespace Web.Helpers
                 LastUpdated = p.Timestamp.ToLocalTime()
             };
             post.AddLink(new SyndicationLink(new Uri(p.FullURL)));
-            post.AddContributor(new SyndicationPerson(Settings.Title, Settings.EmailFromAndTo));
+            post.AddContributor(author);
             return post;
         }
     }
