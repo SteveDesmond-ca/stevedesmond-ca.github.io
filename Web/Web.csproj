@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CoreAPM.NET.CoreMiddleware" Version="0.2.1" />
+    <PackageReference Include="CoreAPM.NET.CoreMiddleware" Version="0.2.7-pre" />
     <PackageReference Include="MailKit" Version="2.0.3" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.3.0-beta2" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.0-rc1-final" />

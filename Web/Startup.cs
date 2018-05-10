@@ -29,7 +29,6 @@ namespace Web
         {
             services.AddCoreAPM(_configuration);
             services.AddDbContext<DB>();
-            services.AddLogging();
             services.AddMemoryCache();
             services.AddMvc();
             services.AddApplicationInsightsTelemetry(_configuration);
