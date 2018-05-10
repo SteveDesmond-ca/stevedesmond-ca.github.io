@@ -1,22 +1,18 @@
-using System.IO;
 using System.Runtime;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
 namespace Web
 {
     public static class Program
     {
-        public static void Main()
+        public static void Main(string[] args)
         {
             GCSettings.LatencyMode = GCLatencyMode.LowLatency;
-
-            var host = new WebHostBuilder()
-                .UseKestrel()
-                .UseContentRoot(Directory.GetCurrentDirectory())
+            
+            WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
-                .Build();
-
-            host.Run();
+                .Build().Run();
         }
     }
 }
