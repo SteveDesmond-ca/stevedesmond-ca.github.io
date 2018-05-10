@@ -1,11 +1,19 @@
 #!/bin/bash
 set -e
 
+docker pull vtsv/www
+docker rm -f $1 || true
+docker run -d --restart=always -p $2:80 -v /db:/db --name $1 vtsv/www
+
+echo "Starting..."
+sleep 10
+curl -sS localhost:$2 > /dev/null
+
 if [ -z $1 ]; then
   grep proxy_pass /etc/nginx/conf.d/stevedesmond.ca.conf
   exit
 fi
 
-sudo sed -i 's/proxy\_pass.*/proxy_pass http:\/\/127.0.0.1:'"$1"'\/;/' /etc/nginx/conf.d/stevedesmond.ca.conf
+sudo sed -i 's/proxy\_pass.*/proxy_pass http:\/\/127.0.0.1:'"$2"'\/;/' /etc/nginx/conf.d/stevedesmond.ca.conf
 sudo service nginx configtest
 sudo service nginx restart
