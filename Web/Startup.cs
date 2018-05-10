@@ -18,6 +18,7 @@ namespace Web
         {
             _configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json")
                 .AddJsonFile("credentials.json")
                 .AddApplicationInsightsSettings(true)
                 .Build();
@@ -28,6 +29,7 @@ namespace Web
         {
             services.AddCoreAPM(_configuration);
             services.AddDbContext<DB>();
+            services.AddLogging();
             services.AddMemoryCache();
             services.AddMvc();
             services.AddApplicationInsightsTelemetry(_configuration);
