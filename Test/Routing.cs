@@ -3,16 +3,16 @@ using Xunit;
 
 namespace Test
 {
-    public class Routing : IClassFixture<PhantomFixture>
+    public class Routing : IClassFixture<WebDriverFixture>
     {
         private readonly IWebDriver driver;
 
-        public Routing(PhantomFixture fixture)
+        public Routing(WebDriverFixture fixture)
         {
             driver = fixture.driver;
         }
 
-        private const string baseURL = "http://localhost:5000";
+        private const string baseURL = "http://localhost:5002";
 
         [Fact]
         public void HomePage()
