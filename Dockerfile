@@ -1,7 +1,8 @@
 FROM microsoft/dotnet:2.1-sdk as builder
 WORKDIR /source
+COPY Web/NuGet.config .
 COPY Web/*.csproj .
-RUN dotnet restore
+RUN dotnet restore --configfile NuGet.config
 COPY Web .
 RUN dotnet publish --output /app --configuration Release
 

@@ -1,8 +1,6 @@
-﻿@using Microsoft.ApplicationInsights.AspNetCore
-@using Microsoft.AspNetCore.Mvc.Rendering
+﻿@using Microsoft.AspNetCore.Mvc.Rendering
 @using Web.Models
 @inject ICache Cache
-@inject JavaScriptSnippet appInsights
 
 <!DOCTYPE html>
 <html>
@@ -40,8 +38,6 @@
     <script type="application/ld+json">
         @Html.Raw(Settings.OrgJSON)
     </script>
-
-    @Html.Raw(appInsights.FullScript)
 </head>
 <body>
     @Html.Partial("Header")

@@ -20,7 +20,6 @@ namespace Web
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json")
                 .AddJsonFile("credentials.json")
-                .AddApplicationInsightsSettings(true)
                 .Build();
         }
 
@@ -31,7 +30,6 @@ namespace Web
             services.AddDbContext<DB>();
             services.AddMemoryCache();
             services.AddMvc();
-            services.AddApplicationInsightsTelemetry(_configuration);
 
             services.AddSingleton<Func<DB>>(() => new DB());
             services.AddSingleton<ICache, Cache>();
