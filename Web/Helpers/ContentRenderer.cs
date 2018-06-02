@@ -25,8 +25,16 @@ namespace Web.Helpers
             if (Summarize)
                 content.Root?.ReplaceNodes(content.Root?.Nodes().Take(2));
 
-            var images = content.Descendants("rimg");
+            var images = content.Descendants("img");
             foreach (var image in images)
+            {
+                var imgSrc = image.Attribute("src");
+                if (imgSrc != null && imgSrc.Value.StartsWith("/"))
+                    image.SetAttributeValue("src", Settings.CDN + imgSrc.Value);
+            }
+
+            var responsiveImages = content.Descendants("rimg");
+            foreach (var image in responsiveImages)
                 ResponsiveImage.UpdateTag(image);
 
             // ReSharper disable once MustUseReturnValue
