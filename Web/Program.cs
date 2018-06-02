@@ -12,6 +12,7 @@ namespace Web
             
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
+                .UseIISIntegration()
                 .Build().Run();
         }
     }
