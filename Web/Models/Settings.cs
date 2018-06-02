@@ -9,7 +9,6 @@
         public const string Description = "Web / app developer and software consultant based in " + Location + "; working remotely with businesses everywhere";
         public const string ImageBase = CDN + "/images";
         public const string ProfileImage = ImageBase + "/steve-0300.jpg";
-        public const string ConnectionString = @"Data Source=/db/db.sqlite";
         public const string EmailFromAndTo = "hi@stevedesmond.ca";
         public const string EmailServer = "smtp.googlemail.com";
         public const string EmailUser = "steve@vtsv.ca";

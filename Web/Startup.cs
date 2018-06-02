@@ -1,10 +1,13 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using System.Linq;
 using CoreAPM.NET.CoreMiddleware;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using Web.Models;
 
 namespace Web
@@ -27,11 +30,11 @@ namespace Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCoreAPM(_configuration);
-            services.AddDbContext<DB>();
+            services.AddDbContext<DB>(o => o.UseSqlite(_configuration.GetConnectionString("DB")));
             services.AddMemoryCache();
             services.AddMvc();
 
-            services.AddSingleton<Func<DB>>(() => new DB());
+            services.AddSingleton<Func<DB>>(s => s.GetService<DB>);
             services.AddSingleton<ICache, Cache>();
             services.AddSingleton(_configuration);
         }
