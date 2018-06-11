@@ -11,16 +11,16 @@
             switch (type) {
                 case 'Email':
                     document.getElementById('email-group').className = 'form-group';
-                    document.getElementById('phone-group').className = 'form-group hidden';
+                    document.getElementById('phone-group').className = 'form-group d-none';
                     break;
                 case 'Phone':
                     document.getElementById('phone-group').className = 'form-group';
-                    document.getElementById('email-group').className = 'form-group hidden';
+                    document.getElementById('email-group').className = 'form-group d-none';
                     break;
             }
         }
     </script>
-    <form class="well col-12 col-sm-10 col-md-6 offset-sm-1 offset-md-0" method="post">
+    <form class="card col-12 col-sm-10 col-md-6 offset-sm-1 offset-md-0" method="post">
         <div class="form-group">
             @Html.LabelFor(f => f.Name)
             @Html.TextBoxFor(f => f.Name, new { Class = "form-control" })
@@ -47,14 +47,14 @@
         </div>
         @Html.ValidationMessageFor(f => f.PreferredMethod, null, new { Class = "text-danger" })
 
-        @{ var emailClass = Model != null && Model.PreferredMethod == ContactMethod.Email ? "form-group" : "form-group hidden"; }
+        @{ var emailClass = Model != null && Model.PreferredMethod == ContactMethod.Email ? "form-group" : "form-group d-none"; }
         <div id="email-group" class="@emailClass">
             @Html.LabelFor(f => f.Email)
             @Html.TextBoxFor(f => f.Email, new { Class = "form-control" })
             @Html.ValidationMessageFor(f => f.Email, null, new { Class = "text-danger" })
         </div>
 
-        @{ var phoneClass = Model != null && Model.PreferredMethod == ContactMethod.Phone ? "form-group" : "form-group hidden"; }
+        @{ var phoneClass = Model != null && Model.PreferredMethod == ContactMethod.Phone ? "form-group" : "form-group d-none"; }
         <div id="phone-group" class="@phoneClass">
             @Html.LabelFor(f => f.Phone)
             @Html.TextBoxFor(f => f.Phone, new { Class = "form-control" })
