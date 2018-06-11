@@ -17,12 +17,8 @@ h4 {
 
 h4 {
     font-weight: bold;
+    line-height: 1.1;
 }
-
-    h4.description,
-    h4.timestamp {
-        line-height: 1.1;
-    }
 
     h4 small {
         color: #aaa;
@@ -103,7 +99,7 @@ footer {
         display: block;
         font-weight: normal;
         min-width: 48px;
-        padding: 8px 10px;
+        padding: 10px 15px;
     }
 
         .navbar .navbar-nav > li a:hover,
@@ -131,6 +127,10 @@ footer {
 
 #title svg {
     width: 100%;
+}
+
+#intro {
+    padding: 15px;
 }
 
 .hero {
@@ -213,6 +213,10 @@ img.hero:focus {
     .page h4 {
         font-size: 16px;
         line-height: 1.1;
+    }
+
+    .page h5 {
+        font-size: 14px;
     }
 
     .page i,

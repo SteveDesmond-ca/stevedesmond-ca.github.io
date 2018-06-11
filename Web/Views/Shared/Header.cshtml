@@ -16,7 +16,7 @@
                     <img src="@($"{Settings.ImageBase}/initials.png")" srcset="@($"{Settings.ImageBase}/initials.png") 1x, @($"{Settings.ImageBase}/initials-2x.png") 2x, @($"{Settings.ImageBase}/initials-3x.png") 3x, @($"{Settings.ImageBase}/initials-4x.png") 4x" alt="SD" />
                 </a>
             </li>
-            <li class="main-menu d-none d-lg-block">
+            <li class="main-menu d-none">
                 <a href="/" rel="home">
                     <i class="fa fa-home"></i>
                     <span>Home</span>
@@ -83,18 +83,18 @@
 }
 <script type="text/javascript">
     function toggleItem(menuItem) {
-        if (menuItem.className.indexOf('d-none d-lg-block') > 0 && menuItem.className.indexOf('visible-xs') > 0) {
-            menuItem.className = 'main-menu visible-xs';
-        } else if (menuItem.className.indexOf('d-none d-lg-block') > 0) {
-            menuItem.className = 'main-menu';
-        } else if (menuItem.className.indexOf('visible-xs') > 0) {
-            menuItem.className = 'main-menu d-none d-lg-block visible-xs';
-        } else {
+        if (menuItem.className.indexOf('d-none d-lg-block') > 0)
+            menuItem.className = 'main-menu d-lg-block';
+        else if (menuItem.className.indexOf('d-none') > 0)
+            menuItem.className = 'main-menu d-lg-none';
+        else if (menuItem.className.indexOf('d-lg-block') > 0)
             menuItem.className = 'main-menu d-none d-lg-block';
-        }
+        else
+            menuItem.className = 'main-menu d-none';
     }
+
     function toggleMenu() {
-        var mainMenu = document.getElementsByClassName('main-menu');
+        const mainMenu = document.getElementsByClassName('main-menu');
         for (var x = 0; x < mainMenu.length; x++) {
             toggleItem(mainMenu[x]);
         }
