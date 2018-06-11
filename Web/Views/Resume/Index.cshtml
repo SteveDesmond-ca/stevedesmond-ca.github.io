@@ -4,7 +4,7 @@
 <article id="resume" class="page col-12 col-md-10 col-lg-8 offset-md-1 offset-lg-2">
     <section class="contact">
         @{ var steve = $"{Settings.ImageBase}/steve-0300.jpg"; }
-        <img class="pull-right row hidden-xs" src="@steve" alt="Steve Desmond"/>
+        <img class="pull-right row d-none d-sm-block" src="@steve" alt="Steve Desmond"/>
         <h1 class="col-sm-9 text-center">Steve Desmond</h1>
         @Html.Raw(ViewBag.ContactInfo)
     </section>

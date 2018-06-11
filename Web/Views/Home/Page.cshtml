@@ -3,7 +3,7 @@
     var category = Model.First().Category;
     var articleStyle = (Model.First().FullWidth) ? "" : "col-12 col-md-10 col-lg-8 offset-md-1 offset-lg-2";
     ViewBag.Summarize = category == "Blog"; }
-<header class="row">
+<header>
     <h2 class="@articleStyle">@category</h2>
 </header>
 @foreach (var page in Model)
