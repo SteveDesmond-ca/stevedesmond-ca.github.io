@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Web.Models.Page>
 @{
     var category = Model.First().Category;
-    var articleStyle = (Model.First().FullWidth) ? "" : "col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2";
+    var articleStyle = (Model.First().FullWidth) ? "" : "col-12 col-md-10 col-lg-8 offset-md-1 offset-lg-2";
     ViewBag.Summarize = category == "Blog"; }
 <header class="row">
     <h2 class="@articleStyle">@category</h2>

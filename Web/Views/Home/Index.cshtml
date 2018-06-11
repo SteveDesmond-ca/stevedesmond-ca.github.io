@@ -1,43 +1,41 @@
 ﻿@using Web.Models
 @inject ICache Cache
 
-<div class="row">
-    <section id="title" class="col-xs-12">
-        <a href="/">
-            <div class="hidden-xs">
-                @Html.Raw(Cache.TitleImage)
-            </div>
-            <div class="visible-xs">
-                @Html.Raw(Cache.TitleImageXS)
-            </div>
-        </a>
-    </section>
+<section id="title" class="row">
+    <a href="/" class="col-12">
+        <div class="d-none d-sm-block">
+            @Html.Raw(Cache.TitleImage)
+        </div>
+        <div class="d-block d-sm-none">
+            @Html.Raw(Cache.TitleImageXS)
+        </div>
+    </a>
+</section>
 
-    @Html.Raw(Cache.Intro)
+@Html.Raw(Cache.Intro)
 
-    <section id="image-links">
-        <a id="services" href="/services" class="col-xs-12 col-sm-6 col-lg-4">
-            <rimg base="services" src="@Settings.ImageBase/services-0640.jpg" class="hero" alt="Services" sizes="(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 360px" />
-        </a>
+<section id="image-links" class="row">
+    <a id="services" href="/services" class="col-12 col-sm-6 col-lg-4">
+        <rimg base="services" src="@Settings.ImageBase/services-0640.jpg" class="hero" alt="Services" sizes="(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 360px" />
+    </a>
 
-        <a id="resume" href="/resume" class="col-xs-12 col-sm-6 col-lg-4">
-            <rimg base="resume" src="@Settings.ImageBase/resume-0640.jpg" class="hero" alt="Resume" sizes="(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 360px" />
-        </a>
+    <a id="resume" href="/resume" class="col-12 col-sm-6 col-lg-4">
+        <rimg base="resume" src="@Settings.ImageBase/resume-0640.jpg" class="hero" alt="Resume" sizes="(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 360px" />
+    </a>
 
-        <a id="portfolio" href="/portfolio" class="col-xs-12 col-sm-6 col-lg-4">
-            <rimg base="portfolio" src="@Settings.ImageBase/portfolio-0640.jpg" class="hero" alt="Portfolio" sizes="(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 360px" />
-        </a>
+    <a id="portfolio" href="/portfolio" class="col-12 col-sm-6 col-lg-4">
+        <rimg base="portfolio" src="@Settings.ImageBase/portfolio-0640.jpg" class="hero" alt="Portfolio" sizes="(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 360px" />
+    </a>
 
-        <a id="work" href="/work-with-steve" class="col-xs-12 col-sm-6 col-lg-4">
-            <rimg base="work" src="@Settings.ImageBase/work-0640.jpg" class="hero" alt="Work With Steve" sizes="(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 360px" />
-        </a>
+    <a id="work" href="/work-with-steve" class="col-12 col-sm-6 col-lg-4">
+        <rimg base="work" src="@Settings.ImageBase/work-0640.jpg" class="hero" alt="Work With Steve" sizes="(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 360px" />
+    </a>
 
-        <a id="blog" href="/blog" class="col-xs-12 col-sm-6 col-lg-4">
-            <rimg base="blog" src="@Settings.ImageBase/blog-0640.jpg" class="hero" alt="Blog" sizes="(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 360px" />
-        </a>
+    <a id="blog" href="/blog" class="col-12 col-sm-6 col-lg-4">
+        <rimg base="blog" src="@Settings.ImageBase/blog-0640.jpg" class="hero" alt="Blog" sizes="(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 360px" />
+    </a>
 
-        <a id="talks" href="/talks" class="col-xs-12 col-sm-6 col-lg-4">
-            <rimg base="talks" src="@Settings.ImageBase/talks-0640.jpg" class="hero" alt="Talks" sizes="(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 360px" />
-        </a>
-    </section>
-</div>
+    <a id="talks" href="/talks" class="col-12 col-sm-6 col-lg-4">
+        <rimg base="talks" src="@Settings.ImageBase/talks-0640.jpg" class="hero" alt="Talks" sizes="(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 360px" />
+    </a>
+</section>

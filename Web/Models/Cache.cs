@@ -12,19 +12,17 @@ namespace Web.Models
     public class Cache : ICache
     {
         public IConfigurationRoot Config { get; set; }
-        private readonly Func<DB> _newDB;
 
-        public Cache(IConfigurationRoot config, IHostingEnvironment env, Func<DB> dbFac)
+        public Cache(IConfigurationRoot config, IHostingEnvironment env, DB db)
         {
             CSSHash = Math.Abs(File.ReadAllText(Path.Combine(env.WebRootPath, "index.css")).GetHashCode());
             TitleImage = File.ReadAllText(Path.Combine(env.WebRootPath, "title.svg")).CleanSVG().Minify();
             TitleImageXS = File.ReadAllText(Path.Combine(env.WebRootPath, "title-xs.svg")).CleanSVG().Minify();
 
-            _newDB = dbFac;
             Config = config;
 
             #pragma warning disable 4014
-            Refresh();
+            Refresh(db);
             #pragma warning restore 4014
         }
 
@@ -37,9 +35,9 @@ namespace Web.Models
         public string RSS { get; private set; }
         public string Atom { get; private set; }
 
-        public async Task Refresh()
+        public async Task Refresh(DB db)
         {
-            Pages = _newDB().Pages.ToList();
+            Pages = db.Pages.ToList();
             Intro = Pages.First(p => p.Category == "Main" && p.Title == "Intro")?.Body;
             AvailabilityMessage = Pages.FirstOrDefault(p => p.Category == "Main" && p.Title == "Availability" && p.Description == "On")?.Body;
 

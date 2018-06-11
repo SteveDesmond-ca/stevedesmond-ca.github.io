@@ -19,7 +19,8 @@ h4 {
     font-weight: bold;
 }
 
-    h4.description {
+    h4.description,
+    h4.timestamp {
         line-height: 1.1;
     }
 
@@ -94,16 +95,15 @@ footer {
     border: none;
     box-shadow: 0 16px 16px 0 #111;
     min-height: 40px;
+    padding: 0;
 }
-
-    .navbar nav {
-        padding: 0;
-    }
 
     .navbar .navbar-nav > li a {
         color: #eee;
+        display: block;
         font-weight: normal;
         min-width: 48px;
+        padding: 8px 10px;
     }
 
         .navbar .navbar-nav > li a:hover,
@@ -113,12 +113,6 @@ footer {
 
 #main-menu-button {
     z-index: 1;
-    cursor: pointer;
-}
-
-#initials img {
-    height: 18px;
-    margin: -2px;
 }
 
 #available-message {
@@ -158,94 +152,42 @@ img.hero:focus {
 
 /* mobile */
 
-@media (max-width: 480px) {
-    .nav-tabs li {
-        padding: 0;
-    }
-
-        .nav-tabs li a {
-            padding: 5px;
-            font-size: 9pt;
-        }
-
-    ol {
-        padding-left: 1em;
-    }
-}
-
-@media (min-width: 480px) and (max-height: 480px) {
-    #title .visible-xs {
-        display: none !important;
-    }
-
-    #title .hidden-xs {
-        display: block !important;
-    }
-}
-
-@media (max-width: 767px) {
-    .navbar .navbar-nav {
+@media (max-width: 991px) {
+    .navbar {
+        background: transparent;
         margin: 0;
-        background: #900 linear-gradient(#a00, #800);
     }
 
-        .navbar .navbar-nav > li.main-menu {
-            background: #333;
-            clear: both;
+        .navbar .navbar-nav {
+            background: #900 linear-gradient(#a00, #800);
+            padding: 0;
         }
 
-            .navbar .navbar-nav > li.main-menu:last-child {
-                box-shadow: 0 16px 16px 0 #111;
+            .navbar .navbar-nav > li.main-menu {
+                background: #333;
+                min-height: 40px;
+                transition: 0.1s;
             }
 
-            .navbar .navbar-nav > li.main-menu a:hover,
-            .navbar .navbar-nav > li.main-menu a:focus {
-                background: #555 linear-gradient(#666, #444);
-            }
+                .navbar .navbar-nav > li.main-menu:last-child {
+                    box-shadow: 0 16px 16px 0 #111;
+                }
+
+                .navbar .navbar-nav > li.main-menu:hover,
+                .navbar .navbar-nav > li.main-menu:focus,
+                .navbar .navbar-nav > li.main-menu a:hover,
+                .navbar .navbar-nav > li.main-menu a:focus {
+                    background: #555 linear-gradient(#666, #444);
+                }
 
     #initials {
         position: absolute;
+        top: 0;
         width: 100%;
     }
 
     #available-message {
         margin-top: 40px;
-    }
-
-    img.hero {
-        margin-top: 7.5px;
-        margin-bottom: 7.5px;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-    .navbar-nav {
-        margin: 0 -8px;
-    }
-
-    .icon-only-sm a {
-        text-align: center;
-    }
-
-    .icon-only-sm i {
-        font-size: 125%;
-        vertical-align: middle;
-    }
-
-    .icon-only-sm span {
-        display: none;
-    }
-}
-
-@media (min-width: 992px) {
-    .navbar-nav {
-        margin: 0 60px;
-    }
-}
-
-@media (min-width: 1200px) {
-    .navbar-nav {
-        margin: 0 160px;
     }
 }
 
@@ -254,6 +196,7 @@ img.hero:focus {
 .page {
     background-color: #fafafa;
     color: #222;
+    font-size: 14px;
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -342,4 +285,23 @@ img.hero:focus {
 
 @page {
     margin: 0.25in;
+}
+
+/* code */
+
+@media (max-width: 480px) {
+    ol div.code {
+        margin-left: -1em;
+    }
+}
+
+div.code {
+    background: #333;
+    border: 1px solid #666;
+    border-radius: 4px;
+    font-family: monospace;
+    max-width: calc(100vw - 30px);
+    overflow-x: auto;
+    padding: 8px;
+    white-space: pre;
 }

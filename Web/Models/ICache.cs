@@ -15,6 +15,6 @@ namespace Web.Models
         string AvailabilityMessage { get; }
         string RSS { get; }
         string Atom { get; }
-        Task Refresh();
+        Task Refresh(DB db);
     }
 }

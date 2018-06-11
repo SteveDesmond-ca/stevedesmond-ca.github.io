@@ -3,7 +3,7 @@
 @inject ICache Cache
 
 @{
-    var articleStyle = (Model.FullWidth) ? "" : "col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2";
+    var articleStyle = (Model.FullWidth) ? "" : "col-12 col-md-10 col-lg-8 offset-md-1 offset-lg-2";
     var summarize = ViewBag.Summarize ?? false;
     var date = Model.Timestamp.ToString("yyyy-MM-dd");
 }

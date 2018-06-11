@@ -77,7 +77,7 @@ namespace Web.Controllers
 
             await _db.Pages.AddAsync(page);
             await _db.SaveChangesAsync();
-            await _cache.Refresh();
+            await _cache.Refresh(_db);
 
             ViewBag.Success = true;
             return RedirectToAction("Edit", new { id = page.ID });
@@ -107,7 +107,7 @@ namespace Web.Controllers
 
             _db.Pages.Update(page);
             await _db.SaveChangesAsync();
-            await _cache.Refresh();
+            await _cache.Refresh(_db);
 
             ViewBag.Success = true;
             return View(page);

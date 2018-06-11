@@ -3,7 +3,7 @@
 @inject ICache Cache
 
 <article class="row">
-    <aside class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-0">
+    <aside class="col-12 col-sm-8 col-md-6 offset-sm-2 offset-md-0">
         @Html.Raw(Cache.Pages.First(p => p.Category == "Work" && p.Title == "Index").Body)
     </aside>
     <script type="text/javascript">
@@ -20,7 +20,7 @@
             }
         }
     </script>
-    <form class="well col-xs-12 col-sm-10 col-md-6 col-sm-offset-1 col-md-offset-0" method="post">
+    <form class="well col-12 col-sm-10 col-md-6 offset-sm-1 offset-md-0" method="post">
         <div class="form-group">
             @Html.LabelFor(f => f.Name)
             @Html.TextBoxFor(f => f.Name, new { Class = "form-control" })

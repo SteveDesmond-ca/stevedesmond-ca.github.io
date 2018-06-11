@@ -8,19 +8,15 @@
     }
 </script>
 
-<div class="row">
-    <div class="pull-left">
-        @Html.ActionLink("<< Back", "")
-    </div>
+<div class="row justify-content-between">
+    @Html.ActionLink("<< Back", "")
 
     @if (!string.IsNullOrEmpty(Model.Category) || !string.IsNullOrEmpty(Model.URL))
     {
-        <div class="pull-right">
-            <a target="_blank" href="/@Model.Category.ToLower()/@Model.URL.ToLower()">
-                <i class="fa fa-external-link"></i>
-                <span>Preview</span>
-            </a>
-        </div>
+        <a target="_blank" href="/@Model.Category.ToLower()/@Model.URL.ToLower()">
+            <i class="fa fa-external-link"></i>
+            <span>Preview</span>
+        </a>
     }
 </div>
 

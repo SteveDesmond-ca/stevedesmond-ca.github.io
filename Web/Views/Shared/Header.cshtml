@@ -1,11 +1,11 @@
 ﻿@using Web.Models
 @inject ICache Cache
 
-<header class="navbar navbar-inverse navbar-fixed-top">
+<header class="navbar navbar-expand-lg fixed-top">
     <nav class="container">
-        <ul class="nav navbar-nav hidden-print">
-            <li class="pull-left visible-xs">
-                <a id="main-menu-button" onclick="toggleMenu();">
+        <ul class="nav navbar-nav col-12 d-flex justify-content-center hidden-print">
+            <li id="main-menu-button" class="d-inline d-lg-none">
+                <a href="javascript:return false;" onclick="toggleMenu();" class="d-inline-block">
                     <i class="fa fa-bars"></i>
                     <span>Menu</span>
                 </a>
@@ -16,55 +16,55 @@
                     <img src="@($"{Settings.ImageBase}/initials.png")" srcset="@($"{Settings.ImageBase}/initials.png") 1x, @($"{Settings.ImageBase}/initials-2x.png") 2x, @($"{Settings.ImageBase}/initials-3x.png") 3x, @($"{Settings.ImageBase}/initials-4x.png") 4x" alt="SD" />
                 </a>
             </li>
-            <li class="main-menu hidden-xs visible-xs">
+            <li class="main-menu d-none d-lg-block">
                 <a href="/" rel="home">
                     <i class="fa fa-home"></i>
                     <span>Home</span>
                 </a>
             </li>
-            <li class="main-menu hidden-xs">
+            <li class="main-menu d-none d-lg-block">
                 <a href="/services">
                     <i class="fa fa-user"></i>
                     <span>Services</span>
                 </a>
             </li>
-            <li class="main-menu hidden-xs">
+            <li class="main-menu d-none d-lg-block">
                 <a href="/resume">
                     <i class="fa fa-file-text"></i>
                     <span>Resume</span>
                 </a>
             </li>
-            <li class="main-menu hidden-xs">
+            <li class="main-menu d-none d-lg-block">
                 <a href="/portfolio">
                     <i class="fa fa-window-restore"></i>
                     <span>Portfolio</span>
                 </a>
             </li>
-            <li class="main-menu hidden-xs">
+            <li class="main-menu d-none d-lg-block">
                 <a href="/work-with-steve">
                     <i class="fa fa-briefcase"></i>
                     <span>Work With Steve</span>
                 </a>
             </li>
-            <li class="main-menu hidden-xs">
+            <li class="main-menu d-none d-lg-block">
                 <a href="/blog">
                     <i class="fa fa-file-text-o"></i>
                     <span>Blog</span>
                 </a>
             </li>
-            <li class="main-menu hidden-xs">
+            <li class="main-menu d-none d-lg-block">
                 <a href="/talks/">
                     <i class="fa fa-comment"></i>
                     <span>Talks</span>
                 </a>
             </li>
-            <li class="main-menu hidden-xs icon-only-sm">
+            <li class="main-menu d-none d-lg-block icon-only-sm">
                 <a target="_blank" href="https://github.com/stevedesmond-ca" title="Github">
                     <i class="fa fa-github"></i>
                     <span>Github</span>
                 </a>
             </li>
-            <li class="main-menu hidden-xs icon-only-sm">
+            <li class="main-menu d-none d-lg-block icon-only-sm">
                 <a target="_blank" href="https://twitter.com/stevedesmond_ca" title="Twitter">
                     <i class="fa fa-twitter"></i>
                     <span>Twitter</span>
@@ -75,7 +75,7 @@
 </header>
 @if (Cache.AvailabilityMessage != null)
 {
-    <nav id="available-message" class="container-fluid col-xs-12 hidden-print">
+    <nav id="available-message" class="container-fluid col-12 hidden-print">
         <p class="text-center">
             @Cache.AvailabilityMessage
         </p>
@@ -83,14 +83,14 @@
 }
 <script type="text/javascript">
     function toggleItem(menuItem) {
-        if (menuItem.className.indexOf('hidden-xs') > 0 && menuItem.className.indexOf('visible-xs') > 0) {
+        if (menuItem.className.indexOf('d-none d-lg-block') > 0 && menuItem.className.indexOf('visible-xs') > 0) {
             menuItem.className = 'main-menu visible-xs';
-        } else if (menuItem.className.indexOf('hidden-xs') > 0) {
+        } else if (menuItem.className.indexOf('d-none d-lg-block') > 0) {
             menuItem.className = 'main-menu';
         } else if (menuItem.className.indexOf('visible-xs') > 0) {
-            menuItem.className = 'main-menu hidden-xs visible-xs';
+            menuItem.className = 'main-menu d-none d-lg-block visible-xs';
         } else {
-            menuItem.className = 'main-menu hidden-xs';
+            menuItem.className = 'main-menu d-none d-lg-block';
         }
     }
     function toggleMenu() {
