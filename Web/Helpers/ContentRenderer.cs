@@ -24,12 +24,20 @@ namespace Web.Helpers
             var content = XDocument.Parse("<root>" + Page.Body + "</root>");
             if (Summarize)
                 content.Root?.ReplaceNodes(content.Root?.Nodes().Take(2));
+            
+            var links = content.Descendants("a");
+            foreach (var link in links)
+            {
+                var imgSrc = link.Attribute("href");
+                if (imgSrc != null && imgSrc.Value.StartsWith("/images"))
+                    link.SetAttributeValue("href", Settings.CDN + imgSrc.Value);
+            }
 
             var images = content.Descendants("img");
             foreach (var image in images)
             {
                 var imgSrc = image.Attribute("src");
-                if (imgSrc != null && imgSrc.Value.StartsWith("/"))
+                if (imgSrc != null && imgSrc.Value.StartsWith("/images"))
                     image.SetAttributeValue("src", Settings.CDN + imgSrc.Value);
             }
 
