@@ -3,7 +3,6 @@ using System.Diagnostics.CodeAnalysis;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.PhantomJS;
 
 namespace Test
 {
@@ -22,8 +21,6 @@ namespace Test
         {
             switch (browser)
             {
-                case "Phantom":
-                    return new PhantomJSDriver();
                 case "Chrome":
                     var chromeOptions = new ChromeOptions();
                     chromeOptions.AddArgument("-headless");

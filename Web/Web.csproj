@@ -17,8 +17,8 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="CoreAPM.NET.CoreMiddleware" Version="0.2.8-pre" />
-    <PackageReference Include="MailKit" Version="2.0.5" />
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.2" />
+    <PackageReference Include="MailKit" Version="2.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.4" />
     <PackageReference Include="Microsoft.SyndicationFeed.ReaderWriter" Version="1.0.2" />
   </ItemGroup>
 </Project>
