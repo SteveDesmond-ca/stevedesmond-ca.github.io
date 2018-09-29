@@ -21,7 +21,7 @@ namespace Web.Models
         [NotMapped]
         public string FullURL => Settings.Domain + AbsoluteURL;
 
-        [Required, MaxLength(50)]
+        [Required, MaxLength(100)]
         public string Title { get; set; }
 
         [MaxLength(250)]
