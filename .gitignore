@@ -9,3 +9,6 @@ packages
 credentials.json
 NDependOut
 node_modules
+_site
+.jekyll-cache/
+yarn-error.log

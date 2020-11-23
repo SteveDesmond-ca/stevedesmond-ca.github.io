@@ -1,0 +1,22 @@
+<html>
+
+    <head>
+        <title>
+            {% if page.title %}
+            {{page.title}} &mdash;
+            {% endif %}
+            Steve Desmond
+        </title>
+        <link rel="stylesheet" href="/assets/notosans/noto.css" />
+        <link rel="stylesheet" href="/assets/site.css" />
+    </head>
+
+    <body>
+        {% include navigation.html %}
+        
+        <main>
+            {{content}}
+        </main>
+    </body>
+
+</html>

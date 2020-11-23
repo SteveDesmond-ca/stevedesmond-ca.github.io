@@ -1,0 +1,14 @@
+{
+  "name": "stevedesmond.ca",
+  "version": "1.0.0",
+  "main": "index.html",
+  "repository": "git@github.com:stevedesmond-ca/stevedesmond.ca",
+  "author": "Steve Desmond <steve@vtsv.ca>",
+  "license": "CC-BY-ND-4.0",
+  "devDependencies": {
+    "notosans": "^4.0.1"
+  },
+  "scripts": {
+    "postinstall": "cp -r node_modules/notosans/noto.css node_modules/notosans/dist assets/notosans"
+  }
+}
