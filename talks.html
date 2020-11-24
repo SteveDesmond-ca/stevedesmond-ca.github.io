@@ -1,0 +1,29 @@
+---
+title: Talks
+---
+{% for item in site.data.talks %}
+<section class="talk">
+
+    <aside>
+        <img src="/assets/talks/{{item.thumbnail}}" />
+    </aside>
+
+    <div class="info">
+        <h2>{{item.title}}</h2>
+        <h3>{{item.subtitle}}</h3>
+        <h4><i>{{item.event}} &mdash; {{item.location}} ({{item.date | date: '%B %-d, %Y'}})</i></h4>
+
+        {%if item.video %}
+        <a href="{{item.video}}">Watch Video</a>
+        /
+        {% endif %}
+
+        <a href="{{item.slides}}">View Slides</a>
+
+        {% if item.code %}
+        /
+        <a href="{{item.code}}">Example Code</a>
+        {% endif %}
+    </div>
+</section>
+{% endfor %}

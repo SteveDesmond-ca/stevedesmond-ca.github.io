@@ -7,14 +7,22 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+}
+
+a {
+    color: #538d43;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
 }
 
 nav {
     width: 100vw;
     padding-bottom: 0.25rem;
-    background: linear-gradient(to right, #538d43ff, #3eb41d3f);
+    background: linear-gradient(90deg, #538d43 25%, #3eb41d 50%, #3eb41d3f);
 }
 
 nav ul {
@@ -29,12 +37,12 @@ nav ul {
 nav a {
     display: block;
     color: black;
+    font-weight: 300;
     text-decoration: none;
     padding: 1rem;
 }
 
-nav a:hover,
-nav a:focus {
+nav a:hover, nav a:focus {
     color: #538d43;
     background-color: #0000001f;
 }
@@ -45,5 +53,25 @@ nav img {
 
 main {
     padding: 1rem 2rem;
-    max-width: 24rem;
+}
+
+section.talk {
+    max-width: 75rem;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+    align-items: center;
+}
+
+.talk aside {
+    flex: 1 1 10rem;
+}
+
+.talk .info {
+    text-align: center;
+    flex: 1 1 30rem;
+}
+
+.talk .info a {
+    font-weight: 500;
 }

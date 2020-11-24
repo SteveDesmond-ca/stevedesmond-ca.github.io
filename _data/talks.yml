@@ -1,0 +1,34 @@
+- title: SOLID
+  subtitle: What Is It Good For?
+  event: Ithaca Web People
+  location: Ithaca, NY
+  date: 2018-11-06
+  thumbnail: iwp-solid.png
+  slides: https://rawcdn.githack.com/stevedesmond-ca/presentations/iwp-solid/index.html
+  code: https://github.com/stevedesmond-ca/solid-example
+
+- title: Adventures In Enterprise
+  subtitle: Lessons Learned Promoting DevOps in a Legacy Organization
+  event: DevOpsDays
+  location: Portland, OR
+  date: 2017-08-02
+  thumbnail: devopsdayspdx.png
+  slides: https://rawcdn.githack.com/stevedesmond-ca/presentations/devopsdayspdx-cloud/index.html
+  video: https://www.youtube.com/watch?v=X6gh4JDTOEs&index=14&list=PLxOMkEM8CUn-9l6_6VI3uI56Y2Zk0ht5o
+
+- title: Continuous Integration
+  event: Ithaca Web People
+  location: Ithaca, NY
+  date: 2016-08-02
+  thumbnail: iwp-ci.png
+  slides: https://rawcdn.githack.com/stevedesmond-ca/presentations/iwpci-cloud/index.html
+  video: https://youtu.be/njNBoHSZOj8
+
+- title: There's An App For That
+  subtitle: Creating Cross-Platform Native Experiences Using Open Web Standards
+  event: HighEdWeb New York
+  location: Cornell University
+  date: 2015-06-12
+  thumbnail: hewny15.png
+  slides: https://rawcdn.githack.com/stevedesmond-ca/presentations/hewny15-cloud/index.html
+  video: https://youtu.be/x9hmzH6-9bk
