@@ -1,0 +1,7 @@
+---
+---
+{% for item in site.posts %}
+<h2>{{item.title}}</h2>
+<h3>{{item.description}}</h3>
+{{item.content | truncatewords: 25}}
+{% endfor %}

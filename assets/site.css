@@ -52,11 +52,11 @@ nav img {
 }
 
 main {
+    max-width: 50rem;
     padding: 1rem 2rem;
 }
 
 section.talk {
-    max-width: 75rem;
     display: flex;
     flex-wrap: wrap;
     padding: 1rem;
@@ -64,12 +64,16 @@ section.talk {
 }
 
 .talk aside {
-    flex: 1 1 10rem;
+    flex: 1 1 15rem;
 }
 
 .talk .info {
     text-align: center;
-    flex: 1 1 30rem;
+    flex: 1 1 25rem;
+}
+
+.talk .info h2 {
+    margin-top: 0;
 }
 
 .talk .info a {
