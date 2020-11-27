@@ -7,4 +7,5 @@ defaults:
   - scope:
       path: "_posts"
     values:
+      layout: blog
       permalink: blog/:title/
