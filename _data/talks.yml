@@ -1,11 +1,25 @@
+- title: Twelve-Factor Apps
+  subtitle: A DevOps Olive Branch
+  event: Ithaca Web People
+  location: Ithaca, NY
+  date: 2019-06-04
+  thumbnail: iwp-12factor.png
+  slides: https://rawcdn.githack.com/stevedesmond-ca/presentations/iwp-12factor/
+  description:
+  - Discussion of the definition of DevOps compared to widespread misunderstandings
+  - Overview of each of the 12 factors, what they mean, and how to implement them
+
 - title: SOLID
   subtitle: What Is It Good For?
   event: Ithaca Web People
   location: Ithaca, NY
   date: 2018-11-06
   thumbnail: iwp-solid.png
-  slides: https://rawcdn.githack.com/stevedesmond-ca/presentations/iwp-solid/index.html
+  slides: https://rawcdn.githack.com/stevedesmond-ca/presentations/iwp-solid/
   code: https://github.com/stevedesmond-ca/solid-example
+  description:
+  - Quick introduction to each of the SOLID principles
+  - Live-coding walkthrough of taking a real-life chunk of code and making it more SOLID
 
 - title: Adventures In Enterprise
   subtitle: Lessons Learned Promoting DevOps in a Legacy Organization
@@ -13,16 +27,32 @@
   location: Portland, OR
   date: 2017-08-02
   thumbnail: devopsdayspdx.png
-  slides: https://rawcdn.githack.com/stevedesmond-ca/presentations/devopsdayspdx-cloud/index.html
+  slides: https://rawcdn.githack.com/stevedesmond-ca/presentations/devopsdayspdx-cloud/
   video: https://www.youtube.com/watch?v=X6gh4JDTOEs&index=14&list=PLxOMkEM8CUn-9l6_6VI3uI56Y2Zk0ht5o
+  description:
+  - How to introduce modern software and infrastructure ideologies into traditional IT departments
+  - Focus on leading culture change, experimentation, and decoupling enterprise systems
+
+- title: Load Testing and Benchmarking Web Applications
+  event: Ithaca Web People
+  location: Ithaca, NY
+  date: 2017-05-07
+  thumbnail: iwp-loadtesting.png
+  slides: https://rawcdn.githack.com/stevedesmond-ca/presentations/iwp-loadtesting/
+  description:
+  - Overview of load testing fundamentals and best practices
+  - Live demos using a wide range of tools
 
 - title: Continuous Integration
   event: Ithaca Web People
   location: Ithaca, NY
   date: 2016-08-02
   thumbnail: iwp-ci.png
-  slides: https://rawcdn.githack.com/stevedesmond-ca/presentations/iwpci-cloud/index.html
+  slides: https://rawcdn.githack.com/stevedesmond-ca/presentations/iwpci-cloud/
   video: https://youtu.be/njNBoHSZOj8
+  description:
+  - Overview of Continuous Integration as a human process, as well as a build tool
+  - Live demo of GitHub-integrated Travis CI automation
 
 - title: There's An App For That
   subtitle: Creating Cross-Platform Native Experiences Using Open Web Standards
@@ -30,5 +60,8 @@
   location: Cornell University
   date: 2015-06-12
   thumbnail: hewny15.png
-  slides: https://rawcdn.githack.com/stevedesmond-ca/presentations/hewny15-cloud/index.html
+  slides: https://rawcdn.githack.com/stevedesmond-ca/presentations/hewny15-cloud/
   video: https://youtu.be/x9hmzH6-9bk
+  description:
+  - Live examples and demos of HTML5 / JS Web APIs, showing the potential of the web as a platform
+  - Using Apache Cordova to create native app packages on multiple platforms
