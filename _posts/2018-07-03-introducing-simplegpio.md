@@ -40,8 +40,9 @@ The official Windows (UWP) SDK is similarly verbose:
 
 ```
 var gpio = GpioController.GetDefault();
-var redLED = gpio.OpenPin(23);
-redLED.SetDriveMode(GpioPinDriveMode.Output);
+var redLED = gpio.OpenPin(23)
+var mode = GpioPinDriveMode.Output;
+redLED.SetDriveMode(mode);
 redLED.Write(GpioPinValue.Low);
 ```
 

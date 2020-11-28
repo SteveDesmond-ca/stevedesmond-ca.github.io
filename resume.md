@@ -8,7 +8,7 @@
 ## Summary
 
 - More than a decade of professional full-stack development in .NET, PHP, and JavaScript
-- Open source contributions/experience in C, C++, C#, Go, Java, JavaScript, PHP, and Python
+- Open source contributions / experience in C, C++, C#, Go, Java, JavaScript, PHP, and Python
 - Specializing in performance optimization, automated testing, and Continuous Integration and Delivery 
 
 ## Work Experience
@@ -80,7 +80,7 @@
 - Developed desktop and web-based applications connected to back-end trading systems
 - Deployed applications and system updates (both in-house and vendor supplied)
 - Built customized, graphical reports on the company's investments and financial transactions
-- Created user documentation for system setup and deployment, and specialized login/security practices
+- Created user documentation for system setup and deployment, and specialized login / security practices
 - Provided Linux expertise in an otherwise Windows-only environment
 - Technical support contact for more than 100 Investment department users and executives
 
