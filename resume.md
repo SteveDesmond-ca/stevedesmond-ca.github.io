@@ -3,27 +3,27 @@
 
 <img src="/assets/steve.jpg" class="profile" alt="Profile photo"/>
 
-# Steve Desmond
+# Steve&nbsp;Desmond
 
 ## Summary
 
-- More than a decade of professional full-stack development in .NET, PHP, and JavaScript
-- Open source contributions / experience in C, C++, C#, Go, Java, JavaScript, PHP, and Python
+- 15 years of professional full-stack development
+- Open source contributions / experience in Bash, C, C++, C#, Docker, F#, Go, Java, JavaScript, PHP, Python, TypeScript, and Visual Basic
 - Specializing in performance optimization, automated testing, and Continuous Integration and Delivery 
 
 ## Work Experience
 
 ### Lead Developer, ecoAPM -- Ithaca, NY (2018 -- Present)
 
-- Building an open source application performance management platform that highlights energy consumption and effiency, to help reduce the environmental burden that software has on the world
-- Assisting organizations with any software development needs; focusing on performance, testing, and code quality
+- Building an open source application performance management platform that highlights energy consumption and effiency, to help reduce the environmental toll that software takes on the planet
+- Assisting organizations with any and all software development needs, focusing on performance, testing, and code quality
 
 ### Lead Developer, Steve Desmond Software Development -- Ithaca, NY (2016 -- 2020)
 
 - Solved clients' business needs locally and remotely with well-crafted software
 - Created new sites, apps, and APIs; built features and fixing defects in existing applications
 - Refactored code to improve maintainability, added automated test coverage to ensure functionality was preserved
-- Profiled and optimed client-side, server-side, and database performance
+- Profiled and optimized client-side, server-side, and database performance
 - Provided training to team members on modern application architecture, development and delivery best practices
 - Configured continuous integration environments and set up build pipelines to enable continuous delivery
 
@@ -105,6 +105,6 @@ See [https://stevedesmond.ca/talks](/talks) for slides and video recordings of p
 
 ## Education
 
-### Ithaca College, 2003 -- 2007 (graduated Cum Laude)
+### Bachelor of Science, Computer Science
 
-#### Bachelor of Science, Computer Science
+#### Ithaca College, 2003 -- 2007 (Cum Laude)
