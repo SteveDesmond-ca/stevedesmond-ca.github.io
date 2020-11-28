@@ -1,4 +1,5 @@
 ---
+title: Résumé
 ---
 
 <img src="/assets/steve.jpg" class="profile" alt="Profile photo"/>
