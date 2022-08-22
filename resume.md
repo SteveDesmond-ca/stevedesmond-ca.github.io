@@ -8,7 +8,7 @@ title: Résumé
 
 ## Summary
 
-- 17 years of professional full-stack development
+- {{ 'now' | date: "%Y" | minus: 2005 }} years of professional full-stack development
 - Open source contributions / experience in Bash, C, C++, C#, Docker, F#, Go, Java, JavaScript, PHP, Python, TypeScript, and Visual Basic
 - Specializing in performance optimization, user experience, automated testing, and Continuous Integration and Delivery
 
@@ -16,8 +16,9 @@ title: Résumé
 
 ### Lead Developer, ecoAPM -- Ithaca, NY (2018 -- Present)
 
-- Building an open source Application Performance Management platform that highlights energy consumption and effiency, to help reduce the environmental toll that software takes on the planet
+- Building an open source Application Performance Management platform that highlights energy consumption and efficiency, to help reduce the environmental toll that software takes on the planet
 - Assisting organizations with any and all software development needs, focusing on performance, UX, testing, and code quality
+- Offering Product Owner and Project Management services to help teams build high quality features from inception to deployment, specializing in [inclusive design](https://corgibytes.com/blog/2020/12/08/inclusive-design/) and [data-driven UX improvements](https://corgibytes.com/blog/2021/04/13/data-driven-ux/)
 
 ### Lead Developer, Steve Desmond Software Development -- Ithaca, NY (2016 -- 2020)
 
@@ -30,46 +31,27 @@ title: Résumé
 
 ### Enterprise Application Developer, Ithaca College -- Ithaca, NY (2013 -- 2016)
 
-*Accomplishments*
-
 - Led implementation of several modern development processes and practices: containers, CI/CD, cloud, APM, config mgmt
 - Modernized student self-service site (previously updated in 2005) with a [new mobile-first responsive design](http://theithacan.org/news/ithaca-college-to-release-homerconnect-2-0/)
 - Optimized memory utilization and improved architecture to provide up to 300x performance improvements
 - Implemented major upgrades and customizations for prospective student social network 
-- Created lightweight automated testing and JSON parsing frameworks for Oracle PL/SQL
-
-*Day-to-day*
-
 - Developed new features and fixed defects for public-facing and campus-community web applications
 - Maintained dozens of legacy applications, ranging widely in size and complexity
-- Added test coverage and refactored legacy code, increasing confidence and decreasing cost of continued support
+- Added test coverage and refactored legacy code, increasing confidence and decreasing cost of support
 - Created RESTful web services to act as secure APIs between front-end applications and back-end systems
 - Built internal libraries and frameworks to increase efficiency and consistency across projects and applications
 - Worked directly with users and managers to develop requirements and prioritize feedback
 
 ### Software Developer / System Administrator, Performance Systems Development -- Ithaca, NY (2010 -- 2013)
 
-*Accomplishments*
-
-- Created a configurable workflow engine, allowing customers to customize how jobs are processed
-- Created an extensible plugin framework, allowing customer-specific modules to be added dynamically
-- Expanded the Continuous Integration build environment to:
-  - Automate the release and deployment of applications to QA, staging, and production environments
-  - Automatically apply configuration and customization to dozens of customer-specific deployments
-- Increased automated unit test code coverage of core assemblies to 100%
-
-*Day-to-day*
-
 - Developed desktop and web-based applications to model and track energy efficiency upgrades
 - Built visual reports to aggregate building attributes and performance results across thousands of entities
 - Profiled application and database performance, improving the speed of the application by as much as 120x
-- Employed a custom Enterprise Service Bus to handle long-running back-end processes asynchronously
+- Created a configurable workflow engine, allowing customers to customize how jobs are processed
+- Created an extensible plugin framework, allowing customer-specific modules to be added dynamically
+- Increased automated unit test code coverage of core assemblies to 100%
 - Monitored and optimized virtual resource allocation, performed system administration duties
-- Took on many product owner and ScrumMaster responsibilities, including:
-  - Facilitating iteration planning and retrospective meetings
-  - Transforming customer requests and functional specifications into user stories
-  - Analyzing sprint progress and reporting release date estimates to management
-  - Project management tool administration
+- Took on many Product Owner and Scrum Master responsibilities
 
 ### Programmer/Analyst / Investment Support, Loews Corporation -- New York, NY (2007 -- 2010)
 
