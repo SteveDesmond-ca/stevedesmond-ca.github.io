@@ -8,16 +8,16 @@ title: Résumé
 
 ## Summary
 
-- 15 years of professional full-stack development
+- 17 years of professional full-stack development
 - Open source contributions / experience in Bash, C, C++, C#, Docker, F#, Go, Java, JavaScript, PHP, Python, TypeScript, and Visual Basic
-- Specializing in performance optimization, automated testing, and Continuous Integration and Delivery 
+- Specializing in performance optimization, user experience, automated testing, and Continuous Integration and Delivery
 
 ## Work Experience
 
 ### Lead Developer, ecoAPM -- Ithaca, NY (2018 -- Present)
 
-- Building an open source application performance management platform that highlights energy consumption and effiency, to help reduce the environmental toll that software takes on the planet
-- Assisting organizations with any and all software development needs, focusing on performance, testing, and code quality
+- Building an open source Application Performance Management platform that highlights energy consumption and effiency, to help reduce the environmental toll that software takes on the planet
+- Assisting organizations with any and all software development needs, focusing on performance, UX, testing, and code quality
 
 ### Lead Developer, Steve Desmond Software Development -- Ithaca, NY (2016 -- 2020)
 
@@ -32,15 +32,10 @@ title: Résumé
 
 *Accomplishments*
 
-- Led implementation of several modern development processes and practices:
-  - Application containers (Docker)
-  - Continuous Integration and Delivery (Go.CD)
-  - Automated cloud provisioning (Azure CLI)
-  - Application Performance Monitoring (New Relic)
-  - Configuration management (Ansible)
-  - Source control and code collaboration (GitLab)
+- Led implementation of several modern development processes and practices: containers, CI/CD, cloud, APM, config mgmt
 - Modernized student self-service site (previously updated in 2005) with a [new mobile-first responsive design](http://theithacan.org/news/ithaca-college-to-release-homerconnect-2-0/)
 - Optimized memory utilization and improved architecture to provide up to 300x performance improvements
+- Implemented major upgrades and customizations for prospective student social network 
 - Created lightweight automated testing and JSON parsing frameworks for Oracle PL/SQL
 
 *Day-to-day*
@@ -58,7 +53,7 @@ title: Résumé
 
 - Created a configurable workflow engine, allowing customers to customize how jobs are processed
 - Created an extensible plugin framework, allowing customer-specific modules to be added dynamically
-- Expanded the use of the Continuous Integration environment (CruiseControl.NET) to:
+- Expanded the Continuous Integration build environment to:
   - Automate the release and deployment of applications to QA, staging, and production environments
   - Automatically apply configuration and customization to dozens of customer-specific deployments
 - Increased automated unit test code coverage of core assemblies to 100%
