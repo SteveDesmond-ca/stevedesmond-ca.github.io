@@ -1,13 +1,13 @@
 - title: Profiling and Fixing Common Performance Bottlenecks
   event: JetBrains Webinar
-  location: Online
+  location: online
   date: 2021-10-07
   thumbnail: jetbrains.png
   slides: https://ecoapm.github.io/presentations/JB2021/
   code: https://github.com/ecoAPM/presentations/tree/JB2021
-  video: 
+  video: https://www.youtube.com/watch?v=DsFolcdyWhs
   description:
-  - Step-by-step tutorial to help make slow apps faster
+  - Step-by-step tutorial to help make slow apps faster, given to an audience of thousands
   - More than a dozen live-coding examples of common performance improvements
 
 - title: Twelve-Factor Apps
