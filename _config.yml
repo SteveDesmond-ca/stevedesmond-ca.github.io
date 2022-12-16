@@ -9,3 +9,4 @@ defaults:
     values:
       layout: blog
       permalink: blog/:title/
+include: [".well-known"]
