@@ -1,9 +1,10 @@
 {
   "devDependencies": {
-    "@fontsource/noto-sans": "^4.5.11",
-    "@fontsource/roboto": "^4.5.8"
+    "@fontsource/noto-sans": "5.0.5",
+    "@fontsource/roboto": "5.0.5",
+    "@fortawesome/fontawesome-free": "6.4.0"
   },
   "scripts": {
-    "postinstall": "cp -r node_modules/@fontsource assets"
+    "postinstall": "bash ./install-fonts.sh"
   }
 }

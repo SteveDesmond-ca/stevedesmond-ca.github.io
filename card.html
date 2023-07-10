@@ -1,0 +1,176 @@
+---
+title: Digital Business Card
+---
+<link rel="stylesheet" href="/assets/fonts/fontawesome/css/all.min.css" />
+<style>
+	:root {
+		--ecogreen: #538d43;
+		font-size: 16px;
+		color: white;
+	}
+
+	body {
+		background-color: var(--ecogreen);
+	}
+
+	header {
+		display: none;
+	}
+
+	main {
+		height: 100vh;
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+	}
+
+	img {
+		padding: 1rem;
+		margin: 2rem;
+		flex-grow: 1;
+		box-shadow: 0 0 2rem 1rem #fff;
+		max-width: min(300px, calc(100vw - 8rem), calc(100vw/4));
+		max-height: calc(100vh - 8rem);
+		cursor: pointer;
+	}
+
+	img.clickme {
+		animation: clickme 10s infinite;
+		animation-delay: 10s;
+	}
+
+	@keyframes clickme {
+		0% {
+			transform: none;
+		}
+
+		2% {
+			transform: scale(102%);
+		}
+
+		4% {
+			transform: none;
+		}
+
+		50% {
+			transform: none;
+		}
+
+		51% {
+			transform: rotate(2deg);
+		}
+
+		52% {
+			transform: rotate(-2deg);
+		}
+
+		53% {
+			transform: none;
+		}
+	}
+
+	section {
+		flex-grow: 0;
+		margin: 1rem 2rem;
+	}
+
+	a {
+		color: white;
+		text-decoration: none;
+	}
+
+	h1 {
+		margin: 0;
+		font-size: 200%;
+	}
+
+	h2 {
+		margin: 0;
+		font-size: 150%;
+	}
+
+	i {
+		margin-right: 0.25rem;
+	}
+
+	@media screen and (orientation: portrait) {
+		main {
+			flex-direction: column;
+		}
+
+		section {
+			flex-grow: 0;
+		}
+
+		img {
+			max-width: calc(100vh - 8rem);
+			max-height: min(300px, calc(100vh - 8rem), calc(100vh/4));
+		}
+	}
+</style>
+
+<img src="/assets/ecoAPM.png" alt="ecoAPM logo" class="clickme" onclick="swap(this)" />
+
+<script src="/assets/qr.js"></script>
+<script>
+	function load() {
+		const qrCode = new QRCode(holder, {
+			text: location.href,
+			width: 960,
+			height: 960,
+			correctLevel: 1
+		});
+		qrCode._android = false;
+		qrCode.makeCode(location.href);
+	}
+
+	function swap(img) {
+		img.src = next();
+		if (clicks > 1) {
+			img.classList.remove('clickme');
+		}
+	}
+
+	function next() {
+		switch (++clicks % 3) {
+			case 0:
+				return '/assets/ecoAPM.png';
+			case 1:
+				return '/assets/steve.jpg';
+			case 2:
+				return qr();
+		}
+	}
+
+	function qr() {
+		const img = holder.querySelector('img');
+		return img.src;
+	}
+
+	let clicks = 0;
+
+	const holder = document.createElement('div');
+	load();
+</script>
+
+<section>
+
+	<h1>Steve Desmond</h1>
+
+	<h2>Lead Developer</h2>
+
+	<p>
+		<i class="far fa-envelope"></i> <a href="mailto:Steve@ecoAPM.com">Steve @ ecoAPM .com</a>
+	</p>
+
+	<p>
+		<i class="fab fa-github"></i> <a href="https://www.github.com/stevedesmond-ca">SteveDesmond-ca</a>
+	</p>
+
+	<p>
+		<i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/steve-desmond">Steve-Desmond</a>
+	</p>
+
+</section>
