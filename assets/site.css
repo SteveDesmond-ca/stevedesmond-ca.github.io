@@ -137,6 +137,14 @@ img.profile {
     margin-left: 2rem;
 }
 
+@media screen and (max-width: 640px) {
+	img.profile {
+		display: block;
+		float: none;
+		margin: auto;
+	}
+}
+
 @media print {
 	:root {
 		font-size: 75%;
